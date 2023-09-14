@@ -16,6 +16,12 @@
 		491CC3032AB083C600391E0B /* TicTacToeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491CC3022AB083C600391E0B /* TicTacToeAppTests.swift */; };
 		491CC30D2AB083C600391E0B /* TicTacToeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491CC30C2AB083C600391E0B /* TicTacToeAppUITests.swift */; };
 		491CC30F2AB083C600391E0B /* TicTacToeAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491CC30E2AB083C600391E0B /* TicTacToeAppUITestsLaunchTests.swift */; };
+		491CC31E2AB0892C00391E0B /* Jura-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 491CC31D2AB0892C00391E0B /* Jura-Light.ttf */; };
+		491CC3202AB1879400391E0B /* InsertNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491CC31F2AB1879400391E0B /* InsertNameViewController.swift */; };
+		491CC3222AB18A5300391E0B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491CC3212AB18A5300391E0B /* GameViewController.swift */; };
+		491CC3622AB1E8E600391E0B /* Write2NamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491CC3612AB1E8E600391E0B /* Write2NamesViewController.swift */; };
+		491CC3E02AB33A3D00391E0B /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491CC3DF2AB33A3D00391E0B /* Game.swift */; };
+		491CC3E22AB33A5A00391E0B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491CC3E12AB33A5A00391E0B /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,12 @@
 		491CC3082AB083C600391E0B /* TicTacToeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicTacToeAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		491CC30C2AB083C600391E0B /* TicTacToeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeAppUITests.swift; sourceTree = "<group>"; };
 		491CC30E2AB083C600391E0B /* TicTacToeAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		491CC31D2AB0892C00391E0B /* Jura-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jura-Light.ttf"; sourceTree = "<group>"; };
+		491CC31F2AB1879400391E0B /* InsertNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertNameViewController.swift; sourceTree = "<group>"; };
+		491CC3212AB18A5300391E0B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		491CC3612AB1E8E600391E0B /* Write2NamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Write2NamesViewController.swift; sourceTree = "<group>"; };
+		491CC3DF2AB33A3D00391E0B /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		491CC3E12AB33A5A00391E0B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +115,15 @@
 				491CC2ED2AB083C500391E0B /* SceneDelegate.swift */,
 				491CC2EF2AB083C500391E0B /* ViewController.swift */,
 				491CC2F12AB083C500391E0B /* Main.storyboard */,
+				491CC31D2AB0892C00391E0B /* Jura-Light.ttf */,
 				491CC2F42AB083C600391E0B /* Assets.xcassets */,
 				491CC2F62AB083C600391E0B /* LaunchScreen.storyboard */,
 				491CC2F92AB083C600391E0B /* Info.plist */,
+				491CC31F2AB1879400391E0B /* InsertNameViewController.swift */,
+				491CC3212AB18A5300391E0B /* GameViewController.swift */,
+				491CC3612AB1E8E600391E0B /* Write2NamesViewController.swift */,
+				491CC3DF2AB33A3D00391E0B /* Game.swift */,
+				491CC3E12AB33A5A00391E0B /* Player.swift */,
 			);
 			path = TicTacToeApp;
 			sourceTree = "<group>";
@@ -232,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				491CC2F82AB083C600391E0B /* LaunchScreen.storyboard in Resources */,
+				491CC31E2AB0892C00391E0B /* Jura-Light.ttf in Resources */,
 				491CC2F52AB083C600391E0B /* Assets.xcassets in Resources */,
 				491CC2F32AB083C500391E0B /* Main.storyboard in Resources */,
 			);
@@ -258,8 +277,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				491CC3222AB18A5300391E0B /* GameViewController.swift in Sources */,
 				491CC2F02AB083C500391E0B /* ViewController.swift in Sources */,
+				491CC3E02AB33A3D00391E0B /* Game.swift in Sources */,
 				491CC2EC2AB083C500391E0B /* AppDelegate.swift in Sources */,
+				491CC3E22AB33A5A00391E0B /* Player.swift in Sources */,
+				491CC3202AB1879400391E0B /* InsertNameViewController.swift in Sources */,
+				491CC3622AB1E8E600391E0B /* Write2NamesViewController.swift in Sources */,
 				491CC2EE2AB083C500391E0B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
