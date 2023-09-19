@@ -27,17 +27,66 @@ class Game {
             currentPLayer =  1
         }
     }
+    //settag is taking in index which is tag and it returns if there was a win, a valid move and currentplayer
+    func setTag(atIndex: Int) -> (GameMoments,Bool,Int){
+        
     
-    func setTag(atIndex: Int) -> Bool{
+        
         let index = atIndex - 1
-        guard atIndex >= 0 && atIndex < board.count && board[atIndex] == 0 else {
+        
+        //cheking boundries
+        guard index >= 0 && index < board.count && board[index] == 0 else {
             print("Invalid move at index \(index)")
-            return false
+            //no win, no valid move for the current player
+            return (.continueGame,false,currentPLayer)
         }
-        board[atIndex] = currentPLayer
-        switchPlayers()
-        return true
+        
+        //currentPlayer has set pressed a tag on the board
+        board[index] = currentPLayer
+        
+        if !board.contains(0){
+            return (.draw, true, currentPLayer)
+        }
+        
+        
+        if CheckforWin(){
+            // if there is a win there was a win, valid move for the currentplayer
+            return (.win,true,currentPLayer)
+        }
+        //if there was no win , valid move then switch players
+       // switchPlayers()
+        
+        return (.continueGame,true,currentPLayer)
     }
+    
+    enum GameMoments {
+        case win
+        case draw
+        case continueGame
+    }
+    
+    func CheckforWin() -> Bool{
+        
+        let winOption = [
+            [0,1,2],
+            [3,4,5],
+            [6,7,8],
+            [0,4,8],
+            [2,4,6],
+            [0,3,6],
+            [1,4,7],
+            [2,5,8]
+        ]
+        return winOption.contains(where: {
+            board[$0[0]] != 0 && board[$0[0]] == board[$0[1]] && board[$0[1]] == board[$0[2]]
+        })
+    }
+        
+
+       
+  
+    
+   
     
     
 }
