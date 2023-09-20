@@ -22,6 +22,8 @@ class GameViewController: UIViewController {
     @IBOutlet weak var imgsq9: UIImageView!
     @IBOutlet weak var lblWin: UILabel!
     
+    @IBOutlet weak var player2Count: UILabel!
+    @IBOutlet weak var player1Count: UILabel!
     @IBOutlet weak var lblPlayersTurn: UILabel!
     
    var player1: Player?
@@ -32,6 +34,7 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
        setName()
+     updateScore()
     }
     
    
@@ -50,13 +53,20 @@ class GameViewController: UIViewController {
     func resetGame(){
         game.board = [0,0,0,0,0,0,0,0,0]
         game.currentPLayer = 1
-//        for tag in 1...9 {
-//            if let symbol = view.viewWithTag(tag) as? UIImageView {
-//                symbol.image = nil
-//            }
-//
-//        }
+        
+        var something = 0
+        
+                for tag in 1...9 {
+                    
+                    if let symbol = view.viewWithTag(tag) as? UIImageView {
+                        symbol.image = UIImage(named: something % 2 == 0 ? "Rectangle 4" : "Rectangle 5")
+                        something += 1
+          }
+
+       }
         lblWin.text = ""
+        updateScore()
+        
     }
    
    
@@ -80,28 +90,40 @@ class GameViewController: UIViewController {
             
             if currentPlayer == 1 {
                 nameWinner = player1?.name
+                game.countWinPlayer1 += 1
+                //add to scorelist
+                
+                print("PLayer 1 score : \(game.countWinPlayer1)")
             }
             else if currentPlayer == 2 {
                 nameWinner = player2?.name
+                game.countWinPlayer2 += 1
+                    //add to score list append
+                print("PLayer 1 score : \(game.countWinPlayer2)")
             }
             if let nameWinner = nameWinner{
+               
                 lblWin.text = "\(nameWinner) wins"
+                lblWin.isHidden = false
             }
-//      
+            updateScore()
+            resetGame()
+//
             self.view.layoutIfNeeded()
 //            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // 2 seconds delay
 //                   self.resetGame()
 //               }
-//          resetGame()
+           // resetGame()
             
             
         case .draw :
             lblWin.text = "Draw"
             self.view.layoutIfNeeded()
+            updateScore()
 //            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // 2 seconds delay
 //                   self.resetGame()
 //               }
-//          resetGame()
+        resetGame()
             
         case .continueGame :
             game.switchPlayers()
@@ -122,6 +144,12 @@ class GameViewController: UIViewController {
             print("error")
         }
         
+    }
+    func updateScore(){
+        if let player1Name = player1?.name, let player2Name = player2?.name{
+            player1Count.text = "\(player1Name) score : \(game.countWinPlayer1)"
+            player2Count.text = "\(player2Name) score : \(game.countWinPlayer2)"
+        }
     }
     
         

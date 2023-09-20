@@ -19,7 +19,9 @@ class Game {
     
     var board = [0,0,0,0,0,0,0,0,0]
     
-    var countWin = 0
+    var countWinPlayer1 = 0
+    var countWinPlayer2 = 0
+   
     
     func switchPlayers (){
         if currentPLayer == 1{
@@ -65,6 +67,8 @@ class Game {
         case draw
         case continueGame
     }
+    
+    
     
     func CheckforWin() -> Bool{
         
