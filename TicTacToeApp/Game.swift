@@ -10,7 +10,6 @@ import Foundation
 class Game {
     
     var playerOne = 1
-    
     var playerTwo = 2
     
     var currentPLayer = 1
@@ -20,6 +19,8 @@ class Game {
     
     var board = [0,0,0,0,0,0,0,0,0]
     
+    var countWin = 0
+    
     func switchPlayers (){
         if currentPLayer == 1{
             currentPLayer = 2
@@ -27,11 +28,10 @@ class Game {
             currentPLayer =  1
         }
     }
-    //settag is taking in index which is tag and it returns if there was a win, a valid move and currentplayer
+    //settag is taking in index which is tag and it returns- if there was a win/draw, a valid move and currentplayer
     func setTag(atIndex: Int) -> (GameMoments,Bool,Int){
         
-    
-        
+        //minus one to not choose an index that has no place
         let index = atIndex - 1
         
         //cheking boundries
@@ -43,7 +43,9 @@ class Game {
         
         //currentPlayer has set pressed a tag on the board
         board[index] = currentPLayer
+       
         
+        //if there is no win, valid move by currentplayer
         if !board.contains(0){
             return (.draw, true, currentPLayer)
         }
@@ -53,9 +55,8 @@ class Game {
             // if there is a win there was a win, valid move for the currentplayer
             return (.win,true,currentPLayer)
         }
-        //if there was no win , valid move then switch players
-       // switchPlayers()
-        
+       
+        //game is played
         return (.continueGame,true,currentPLayer)
     }
     
@@ -82,11 +83,5 @@ class Game {
         })
     }
         
-
-       
-  
-    
-   
-    
     
 }

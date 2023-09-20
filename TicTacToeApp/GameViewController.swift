@@ -8,6 +8,8 @@
 import UIKit
 
 class GameViewController: UIViewController {
+    
+
 
     @IBOutlet weak var imgsq1: UIImageView!
     @IBOutlet weak var imgsq2: UIImageView!
@@ -20,12 +22,19 @@ class GameViewController: UIViewController {
     @IBOutlet weak var imgsq9: UIImageView!
     @IBOutlet weak var lblWin: UILabel!
     
+    @IBOutlet weak var lblPlayersTurn: UILabel!
+    
+   var player1: Player?
+   var player2: Player?
+    
     var game = Game()
     
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+       setName()
     }
+    
+   
     //setting an image takes in the number of a tag and the current player who is placing it
     func setSymbol(tagNr: Int,currentPlayer: Int){
         
@@ -37,15 +46,16 @@ class GameViewController: UIViewController {
         symbol?.image = UIImage(systemName: playerOneOrTwo)
     }
     
+    
     func resetGame(){
         game.board = [0,0,0,0,0,0,0,0,0]
         game.currentPLayer = 1
-        for tag in 1...9 {
-            if let symbol = view.viewWithTag(tag) as? UIImageView {
-                symbol.image = nil
-            }
-                
-        }
+//        for tag in 1...9 {
+//            if let symbol = view.viewWithTag(tag) as? UIImageView {
+//                symbol.image = nil
+//            }
+//
+//        }
         lblWin.text = ""
     }
    
@@ -58,20 +68,33 @@ class GameViewController: UIViewController {
         
         let currentPLayer = game.currentPLayer
         
-      
-        
-           if validMove {
+         if validMove {
              setSymbol(tagNr: tag, currentPlayer: currentPLayer)
            }
-//
+
         switch gameMoment{
+            
         case .win:
-            lblWin.text = "Player \(currentPlayer) wins"
+            
+            var nameWinner: String?
+            
+            if currentPlayer == 1 {
+                nameWinner = player1?.name
+            }
+            else if currentPlayer == 2 {
+                nameWinner = player2?.name
+            }
+            if let nameWinner = nameWinner{
+                lblWin.text = "\(nameWinner) wins"
+            }
+//      
             self.view.layoutIfNeeded()
 //            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // 2 seconds delay
 //                   self.resetGame()
 //               }
 //          resetGame()
+            
+            
         case .draw :
             lblWin.text = "Draw"
             self.view.layoutIfNeeded()
@@ -79,17 +102,34 @@ class GameViewController: UIViewController {
 //                   self.resetGame()
 //               }
 //          resetGame()
+            
         case .continueGame :
             game.switchPlayers()
+            setName()
         }
         print("tag nr : \(tag)")
         }
+    
+    func setName(){
+        if let player1Name = player1?.name, let player2Name = player2?.name{
+            if game.currentPLayer == 1 {
+                lblPlayersTurn.text = "\(player1Name) 's turn"
+            }else {
+                lblPlayersTurn.text = "\(player2Name) 's turn"
+            }
+            
+        }else{
+            print("error")
+        }
+        
+    }
+    
         
 
       
         
     }
-    
+
    
     
 

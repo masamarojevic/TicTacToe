@@ -9,6 +9,10 @@ import UIKit
 
 class Write2NamesViewController: UIViewController {
 
+    @IBOutlet weak var txtFieldname2: UITextField!
+    @IBOutlet weak var txtFieldName1: UITextField!
+    
+    let navigateToGame = "NavigateToGame"
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,14 +20,22 @@ class Write2NamesViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == navigateToGame{
+                  
+      let destinationVC = segue.destination as! GameViewController
+      if let txtName1 = txtFieldName1.text,let txtName2 = txtFieldname2.text{
+          
+          destinationVC.player1 = Player(name: txtName1)
+          destinationVC.player2 = Player(name: txtName2)
+      }
+           
+            
+           
+        }
     }
-    */
+    
 
 }

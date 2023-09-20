@@ -41,6 +41,9 @@
                                             <fontDescription key="titleFontDescription" name="Jura-Light" family="Jura" pointSize="24"/>
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="jq2-wP-tik" kind="show" id="CjW-nu-2Q3"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8S-dk-Zq5">
                                         <rect key="frame" x="0.0" y="122" width="250" height="42"/>
@@ -50,9 +53,6 @@
                                             <fontDescription key="titleFontDescription" name="Jura-Light" family="Jura" pointSize="24"/>
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
-                                        <connections>
-                                            <segue destination="x5o-VK-3td" kind="show" id="bzf-ZS-I0Y"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrU-df-iWr">
                                         <rect key="frame" x="0.0" y="244" width="250" height="42"/>
@@ -134,11 +134,11 @@
             <objects>
                 <viewController id="jq2-wP-tik" customClass="Write2NamesViewController" customModule="TicTacToeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vq4-pG-wlC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="cJv-jk-QXQ">
-                                <rect key="frame" x="90" y="149.00000000000003" width="213" height="352.66666666666674"/>
+                                <rect key="frame" x="90" y="90.000000000000028" width="213" height="352.66666666666674"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1 name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syr-g9-4B4">
                                         <rect key="frame" x="0.0" y="0.0" width="213" height="37.333333333333336"/>
@@ -147,7 +147,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sqs-CM-yXr">
-                                        <rect key="frame" x="0.0" y="107.33333333333331" width="213" height="34"/>
+                                        <rect key="frame" x="0.0" y="107.33333333333334" width="213" height="34"/>
                                         <color key="backgroundColor" red="0.78823530669999997" green="0.86666667460000002" blue="0.84705877299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="Jura-Light" family="Jura" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -166,8 +166,12 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="🦆 icon _arrow forward outline_" translatesAutoresizingMaskIntoConstraints="NO" id="G5N-eu-8M9">
-                                <rect key="frame" x="134.66666666666666" y="614.66666666666663" width="123.99999999999997" height="124"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" image="🦆 icon _arrow forward outline_" translatesAutoresizingMaskIntoConstraints="NO" id="G5N-eu-8M9">
+                                <rect key="frame" x="134.66666666666666" y="555.66666666666663" width="123.99999999999997" height="124"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="l5g-CF-zId" appends="YES" id="W95-Pd-w51"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4jf-eq-mEF"/>
@@ -179,8 +183,18 @@
                             <constraint firstItem="cJv-jk-QXQ" firstAttribute="top" secondItem="4jf-eq-mEF" secondAttribute="top" constant="90" id="wc7-9S-HOy"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="fyH-vc-IfX"/>
+                    <connections>
+                        <outlet property="txtFieldName1" destination="sqs-CM-yXr" id="ibk-ie-1hB"/>
+                        <outlet property="txtFieldname2" destination="zJ8-pu-X7x" id="4Dh-iX-x9e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b4h-yE-HMY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="l5g-CF-zId">
+                    <connections>
+                        <segue destination="x5o-VK-3td" kind="show" identifier="NavigateToGame" id="Waz-YT-bCS"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="949" y="31"/>
         </scene>
@@ -193,7 +207,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8p-Zw-KSV">
-                                <rect key="frame" x="156.33333333333334" y="184" width="80.666666666666657" height="38"/>
+                                <rect key="frame" x="157.33333333333334" y="183.33333333333334" width="78.333333333333343" height="37.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Jura-Light" family="Jura" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -324,7 +338,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Turn:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4U-XD-2g8">
-                                <rect key="frame" x="161.33333333333334" y="120" width="70.333333333333343" height="38"/>
+                                <rect key="frame" x="161" y="119.99999999999999" width="71.333333333333314" height="37.333333333333329"/>
                                 <fontDescription key="fontDescription" name="Jura-Light" family="Jura" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -354,6 +368,7 @@
                         <outlet property="imgsq7" destination="pYs-P0-BON" id="lSz-N7-IsO"/>
                         <outlet property="imgsq8" destination="0ji-Ek-wHV" id="bHE-Qj-lZc"/>
                         <outlet property="imgsq9" destination="W9i-xL-YXf" id="ipV-X2-7NY"/>
+                        <outlet property="lblPlayersTurn" destination="D8p-Zw-KSV" id="623-Hw-2ZE"/>
                         <outlet property="lblWin" destination="bRu-40-fpK" id="7s1-al-EsG"/>
                     </connections>
                 </viewController>
