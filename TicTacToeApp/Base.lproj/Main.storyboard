@@ -18,20 +18,20 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TicTacToeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Vector-2" translatesAutoresizingMaskIntoConstraints="NO" id="BVe-sp-990">
-                                <rect key="frame" x="161" y="134" width="71" height="77"/>
+                                <rect key="frame" x="161" y="75" width="71" height="77"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Vector" translatesAutoresizingMaskIntoConstraints="NO" id="oAe-xQ-Q9c">
-                                <rect key="frame" x="144.66666666666666" y="183" width="104" height="105"/>
+                                <rect key="frame" x="144.66666666666666" y="124" width="104" height="105"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="gbc-cu-lBG">
-                                <rect key="frame" x="71.666666666666686" y="413" width="250" height="286"/>
+                                <rect key="frame" x="71.666666666666686" y="435" width="250" height="288"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhm-pX-e46">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="42"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="42.666666666666664"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="EQK-nS-jQk"/>
                                         </constraints>
@@ -46,7 +46,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8S-dk-Zq5">
-                                        <rect key="frame" x="0.0" y="122" width="250" height="42"/>
+                                        <rect key="frame" x="0.0" y="122.66666666666664" width="250" height="42.666666666666671"/>
                                         <color key="tintColor" red="0.78823530669999997" green="0.86666667460000002" blue="0.84705877299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="1 player" cornerStyle="capsule">
@@ -55,7 +55,7 @@
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrU-df-iWr">
-                                        <rect key="frame" x="0.0" y="244" width="250" height="42"/>
+                                        <rect key="frame" x="0.0" y="245.33333333333334" width="250" height="42.666666666666657"/>
                                         <color key="tintColor" red="0.58039218189999997" green="0.73725497719999999" blue="0.69411766529999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Score List" cornerStyle="capsule">
@@ -77,6 +77,7 @@
                             <constraint firstItem="BVe-sp-990" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yrM-fx-4dX"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="7XU-bC-aSf"/>
                     <connections>
                         <outlet property="btnOneplayer" destination="O8S-dk-Zq5" id="ELT-lc-guq"/>
                         <outlet property="btnScoreList" destination="wrU-df-iWr" id="BDD-xo-kKV"/>
@@ -331,12 +332,6 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRu-40-fpK">
-                                <rect key="frame" x="161.33333333333334" y="650" width="70.666666666666657" height="33.333333333333371"/>
-                                <fontDescription key="fontDescription" name="Jura-Light" family="Jura" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Turn:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4U-XD-2g8">
                                 <rect key="frame" x="161.33333333333334" y="120" width="70.333333333333343" height="38"/>
                                 <fontDescription key="fontDescription" name="Jura-Light" family="Jura" pointSize="32"/>
@@ -344,7 +339,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="Nwm-Iv-ZQ6">
-                                <rect key="frame" x="78.666666666666686" y="731" width="236" height="20.333333333333371"/>
+                                <rect key="frame" x="78.666666666666686" y="708.66666666666663" width="236" height="20.333333333333371"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5PD-cw-fHr">
                                         <rect key="frame" x="0.0" y="0.0" width="43" height="20.333333333333332"/>
@@ -360,26 +355,47 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s5u-kl-8YT">
+                                <rect key="frame" x="144.66666666666666" y="758.66666666666663" width="103.66666666666666" height="35.333333333333371"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Exit game">
+                                    <fontDescription key="titleFontDescription" name="Jura-Light" family="Jura" pointSize="18"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="I8A-5F-s8L"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRu-40-fpK">
+                                <rect key="frame" x="161.33333333333334" y="590.66666666666663" width="70.666666666666657" height="33.333333333333371"/>
+                                <fontDescription key="fontDescription" name="Jura-Light" family="Jura" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RM0-MS-4L7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="R4U-XD-2g8" firstAttribute="top" secondItem="RM0-MS-4L7" secondAttribute="top" constant="120" id="0Io-bK-qpv"/>
                             <constraint firstItem="hic-Lk-D3a" firstAttribute="centerY" secondItem="v31-nG-JEU" secondAttribute="centerY" id="CFX-J6-17L"/>
-                            <constraint firstItem="RM0-MS-4L7" firstAttribute="bottom" secondItem="bRu-40-fpK" secondAttribute="bottom" constant="158.66999999999999" id="E9F-co-lsd"/>
+                            <constraint firstItem="RM0-MS-4L7" firstAttribute="bottom" secondItem="s5u-kl-8YT" secondAttribute="bottom" constant="48" id="F1E-UU-BsG"/>
                             <constraint firstItem="Nwm-Iv-ZQ6" firstAttribute="centerX" secondItem="v31-nG-JEU" secondAttribute="centerX" id="GbE-o7-aTy"/>
+                            <constraint firstItem="s5u-kl-8YT" firstAttribute="top" secondItem="Nwm-Iv-ZQ6" secondAttribute="bottom" constant="29.670000000000002" id="Hj9-wY-ryy"/>
                             <constraint firstItem="hic-Lk-D3a" firstAttribute="centerX" secondItem="v31-nG-JEU" secondAttribute="centerX" id="LVU-31-dGn"/>
-                            <constraint firstItem="bRu-40-fpK" firstAttribute="centerX" secondItem="v31-nG-JEU" secondAttribute="centerX" id="QgW-j2-6ET"/>
-                            <constraint firstItem="RM0-MS-4L7" firstAttribute="bottom" secondItem="Nwm-Iv-ZQ6" secondAttribute="bottom" constant="90.670000000000002" id="ajJ-hG-m8E"/>
+                            <constraint firstItem="bRu-40-fpK" firstAttribute="top" secondItem="hic-Lk-D3a" secondAttribute="bottom" constant="27.329999999999998" id="NlD-8p-A6I"/>
+                            <constraint firstItem="Nwm-Iv-ZQ6" firstAttribute="centerX" secondItem="v31-nG-JEU" secondAttribute="centerX" id="SaX-yY-URW"/>
+                            <constraint firstItem="s5u-kl-8YT" firstAttribute="centerX" secondItem="v31-nG-JEU" secondAttribute="centerX" id="Shs-Zz-IYw"/>
+                            <constraint firstItem="Nwm-Iv-ZQ6" firstAttribute="centerX" secondItem="v31-nG-JEU" secondAttribute="centerX" id="V6N-3G-UTX"/>
                             <constraint firstItem="Nwm-Iv-ZQ6" firstAttribute="centerX" secondItem="v31-nG-JEU" secondAttribute="centerX" id="btl-Hc-Mb7"/>
+                            <constraint firstItem="Nwm-Iv-ZQ6" firstAttribute="centerX" secondItem="v31-nG-JEU" secondAttribute="centerX" id="gDV-0b-ymL"/>
                             <constraint firstItem="R4U-XD-2g8" firstAttribute="centerX" secondItem="v31-nG-JEU" secondAttribute="centerX" id="hFR-DL-k1k"/>
-                            <constraint firstItem="Nwm-Iv-ZQ6" firstAttribute="top" secondItem="bRu-40-fpK" secondAttribute="bottom" constant="47.670000000000002" id="iad-TK-uRi"/>
+                            <constraint firstItem="bRu-40-fpK" firstAttribute="centerX" secondItem="v31-nG-JEU" secondAttribute="centerX" id="hgc-8b-g9y"/>
                             <constraint firstItem="D8p-Zw-KSV" firstAttribute="top" secondItem="R4U-XD-2g8" secondAttribute="bottom" constant="26" id="ksa-xs-WlQ"/>
                             <constraint firstItem="D8p-Zw-KSV" firstAttribute="centerX" secondItem="v31-nG-JEU" secondAttribute="centerX" id="lbV-b5-xwD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1ui-oi-sup"/>
                     <connections>
+                        <outlet property="btnExitGame" destination="s5u-kl-8YT" id="SpZ-fu-9Kx"/>
                         <outlet property="imgsq1" destination="uoi-ou-GBn" id="9HH-ak-x6f"/>
                         <outlet property="imgsq2" destination="03l-rF-vdU" id="sIH-QR-htu"/>
                         <outlet property="imgsq3" destination="1bp-sw-x5h" id="Tzh-xx-ps9"/>

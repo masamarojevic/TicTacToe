@@ -26,13 +26,16 @@ class GameViewController: UIViewController {
     @IBOutlet weak var player1Count: UILabel!
     @IBOutlet weak var lblPlayersTurn: UILabel!
     
-   var player1: Player?
+    @IBOutlet weak var btnExitGame: UIButton!
+    var player1: Player?
    var player2: Player?
     
     var game = Game()
+  
     
 
     override func viewDidLoad() {
+        
        setName()
      updateScore()
     }
@@ -91,6 +94,7 @@ class GameViewController: UIViewController {
             if currentPlayer == 1 {
                 nameWinner = player1?.name
                 game.countWinPlayer1 += 1
+                player1?.scoreList.append(0)
                 //add to scorelist
                 
                 print("PLayer 1 score : \(game.countWinPlayer1)")
@@ -98,32 +102,36 @@ class GameViewController: UIViewController {
             else if currentPlayer == 2 {
                 nameWinner = player2?.name
                 game.countWinPlayer2 += 1
+                player2?.scoreList.append(0)
                     //add to score list append
                 print("PLayer 1 score : \(game.countWinPlayer2)")
             }
+            lblWin.isHidden = false
             if let nameWinner = nameWinner{
-               
+               // lblWin.isHidden = false
                 lblWin.text = "\(nameWinner) wins"
-                lblWin.isHidden = false
+             
+                
             }
             updateScore()
-            resetGame()
-//
+          
+
             self.view.layoutIfNeeded()
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // 2 seconds delay
-//                   self.resetGame()
-//               }
-           // resetGame()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // 2 seconds delay
+                  self.resetGame()
+             }
+           
             
             
         case .draw :
             lblWin.text = "Draw"
             self.view.layoutIfNeeded()
             updateScore()
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // 2 seconds delay
-//                   self.resetGame()
-//               }
-        resetGame()
+            lblWin.isHidden = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // 2 seconds delay
+                  self.resetGame()
+              }
+      
             
         case .continueGame :
             game.switchPlayers()
