@@ -54,8 +54,7 @@ class GameViewController: UIViewController {
     
     
     func resetGame(){
-        game.board = [0,0,0,0,0,0,0,0,0]
-        game.currentPLayer = 1
+        game.reset()
         
         var something = 0
         
@@ -89,30 +88,15 @@ class GameViewController: UIViewController {
             
         case .win:
             
-            var nameWinner: String?
+            game.playerCount(currentPlayer)
             
-            if currentPlayer == 1 {
-                nameWinner = player1?.name
-                game.countWinPlayer1 += 1
-                player1?.scoreList.append(0)
-                //add to scorelist
-                
-                print("PLayer 1 score : \(game.countWinPlayer1)")
-            }
-            else if currentPlayer == 2 {
-                nameWinner = player2?.name
-                game.countWinPlayer2 += 1
-                player2?.scoreList.append(0)
-                    //add to score list append
-                print("PLayer 1 score : \(game.countWinPlayer2)")
+            let winningPlayer = (currentPlayer == 1) ? player1 : player2
+            if let winnerName = winningPlayer?.name {
+                lblWin.text = "\(winnerName) wins"
             }
             lblWin.isHidden = false
-            if let nameWinner = nameWinner{
-               // lblWin.isHidden = false
-                lblWin.text = "\(nameWinner) wins"
-             
-                
-            }
+            
+
             updateScore()
           
 

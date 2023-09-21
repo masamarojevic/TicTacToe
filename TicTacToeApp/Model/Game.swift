@@ -86,6 +86,19 @@ class Game {
             board[$0[0]] != 0 && board[$0[0]] == board[$0[1]] && board[$0[1]] == board[$0[2]]
         })
     }
+    
+    func reset(){
+        board = [0,0,0,0,0,0,0,0,0]
+        currentPLayer = 1
+    }
+    
+    func playerCount(_ player:Int){
+        if player == 1 {
+            countWinPlayer1 += 1
+        }else {
+            countWinPlayer2 += 1
+        }
+    }
         
     
 }

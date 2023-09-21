@@ -9,7 +9,10 @@ import UIKit
 
 class InsertNameViewController: UIViewController {
 
-    @IBOutlet weak var txtInsertName: UITextField!
+    @IBOutlet weak var txtFieldInsertName: UITextField!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
