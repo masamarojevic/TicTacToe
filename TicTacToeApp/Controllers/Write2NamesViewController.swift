@@ -28,8 +28,8 @@ class Write2NamesViewController: UIViewController {
       let destinationVC = segue.destination as! GameViewController
       if let txtName1 = txtFieldName1.text,let txtName2 = txtFieldname2.text{
           
-          destinationVC.player1 = Player(name: txtName1)
-          destinationVC.player2 = Player(name: txtName2)
+          destinationVC.playerOne = Player(name: txtName1)
+          destinationVC.playerTwo = Player(name: txtName2)
       }
            
             

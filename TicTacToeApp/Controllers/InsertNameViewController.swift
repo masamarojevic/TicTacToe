@@ -8,26 +8,32 @@
 import UIKit
 
 class InsertNameViewController: UIViewController {
-
+ 
     @IBOutlet weak var txtFieldInsertName: UITextField!
+    let navigateToGame1 = "Navigate"
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == navigateToGame1{
+            
+            let destinationVC = segue.destination as! GameViewController
+            destinationVC.gameOption = .PlayerVsComputer
+            if let txtName1 = txtFieldInsertName.text{
+                print("setting name for player one : \(txtName1)")
+                destinationVC.playerOne = Player(name: txtName1)
+            }
+        }
+        
+        
     }
-    */
-
 }

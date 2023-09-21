@@ -14,8 +14,8 @@ class Game {
     
     var currentPLayer = 1
     
-    //we need a boolean to know if the game has started
-    var isPlaying = false
+    //we need a boolean to know if we are playing with a computer or not
+    var isPlayingWithComputer:Bool = false
     
     var board = [0,0,0,0,0,0,0,0,0]
     
@@ -98,6 +98,22 @@ class Game {
         }else {
             countWinPlayer2 += 1
         }
+    }
+    
+    func computerMoves() -> Int? {
+        print("Determining computer's move...")
+        //enumareted say on which index the players has placed its icon, which indexes are empty. It looks at the whole board
+        // compactmap checks if there is an empty spot, takes his index if so if not it ignores is
+        //randomelement randomly selects an empty spot
+        let freeMoves = board.enumerated().compactMap{$1 == 0 ? $0 : nil}
+        return freeMoves.randomElement()
+        
+    }
+    
+    func isSpotOccupied(atIndex index: Int) -> Bool {
+        // Assuming you have a representation of your board as an array called board
+        // where empty spots are represented by 0, player 1 by 1, and player 2 by 2
+        return board[index] != 0
     }
         
     

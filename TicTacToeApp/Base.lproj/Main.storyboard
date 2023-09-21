@@ -90,7 +90,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Write in your name " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evn-pF-cWk">
-                                <rect key="frame" x="56.666666666666657" y="156" width="279.66666666666674" height="38"/>
+                                <rect key="frame" x="58" y="156" width="277" height="38"/>
                                 <fontDescription key="fontDescription" name="Jura-Light" family="Jura" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -102,20 +102,21 @@
                                 <fontDescription key="fontDescription" name="Jura-Light" family="Jura" pointSize="21"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="🦆 icon _arrow forward outline_" translatesAutoresizingMaskIntoConstraints="NO" id="Xzr-3l-lbC">
-                                <rect key="frame" x="134.66666666666666" y="534" width="123.99999999999997" height="124"/>
-                                <gestureRecognizers/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JH1-Vx-Rdw">
+                                <rect key="frame" x="159" y="588" width="75" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="TRu-xM-iWr" appends="YES" id="h5C-Uh-EUW"/>
+                                    <segue destination="x5o-VK-3td" kind="show" identifier="Navigate" id="Ns0-N8-ALx"/>
                                 </connections>
-                            </imageView>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Da0-fW-Hik"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Da0-fW-Hik" firstAttribute="bottom" secondItem="JH1-Vx-Rdw" secondAttribute="bottom" constant="219" id="QvS-U4-mOf"/>
                             <constraint firstItem="evn-pF-cWk" firstAttribute="centerX" secondItem="jEQ-L7-Ke1" secondAttribute="centerX" id="WRg-gN-Y2A"/>
-                            <constraint firstItem="Xzr-3l-lbC" firstAttribute="centerX" secondItem="jEQ-L7-Ke1" secondAttribute="centerX" id="dk2-Tx-Otp"/>
-                            <constraint firstItem="Da0-fW-Hik" firstAttribute="bottom" secondItem="Xzr-3l-lbC" secondAttribute="bottom" constant="184" id="vx7-wp-PYB"/>
+                            <constraint firstItem="JH1-Vx-Rdw" firstAttribute="centerX" secondItem="jEQ-L7-Ke1" secondAttribute="centerX" id="s8i-nF-gnw"/>
                             <constraint firstItem="evn-pF-cWk" firstAttribute="top" secondItem="Da0-fW-Hik" secondAttribute="top" constant="156" id="ziq-Ly-I1j"/>
                         </constraints>
                     </view>
@@ -125,11 +126,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ow0-pS-gte" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="TRu-xM-iWr">
-                    <connections>
-                        <segue destination="x5o-VK-3td" kind="showDetail" id="rwr-EO-J02"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="949" y="-642"/>
         </scene>
@@ -465,7 +461,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rwr-EO-J02"/>
+        <segue reference="Waz-YT-bCS"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Rectangle 4" width="72" height="69"/>
