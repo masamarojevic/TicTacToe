@@ -90,34 +90,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Write in your name " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evn-pF-cWk">
-                                <rect key="frame" x="58" y="156" width="277" height="38"/>
+                                <rect key="frame" x="56.666666666666657" y="156" width="279.66666666666674" height="38"/>
                                 <fontDescription key="fontDescription" name="Jura-Light" family="Jura" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="duC-0L-Z7s">
-                                <rect key="frame" x="102" y="330" width="189" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="duC-0L-Z7s">
+                                <rect key="frame" x="89" y="330" width="215" height="35"/>
                                 <color key="backgroundColor" red="0.78823530669999997" green="0.86666667460000002" blue="0.84705877299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="215" id="hwg-Hr-50z"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Jura-Light" family="Jura" pointSize="21"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JH1-Vx-Rdw">
-                                <rect key="frame" x="159" y="588" width="75" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" image="🦆 icon _arrow forward outline_" translatesAutoresizingMaskIntoConstraints="NO" id="ekN-B7-b1O">
+                                <rect key="frame" x="134.66666666666666" y="433" width="123.99999999999997" height="124"/>
+                                <gestureRecognizers/>
                                 <connections>
-                                    <segue destination="x5o-VK-3td" kind="show" identifier="Navigate" id="Ns0-N8-ALx"/>
+                                    <outletCollection property="gestureRecognizers" destination="STw-jZ-NZT" appends="YES" id="bF5-4w-w1O"/>
                                 </connections>
-                            </button>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Da0-fW-Hik"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Da0-fW-Hik" firstAttribute="bottom" secondItem="JH1-Vx-Rdw" secondAttribute="bottom" constant="219" id="QvS-U4-mOf"/>
-                            <constraint firstItem="evn-pF-cWk" firstAttribute="centerX" secondItem="jEQ-L7-Ke1" secondAttribute="centerX" id="WRg-gN-Y2A"/>
-                            <constraint firstItem="JH1-Vx-Rdw" firstAttribute="centerX" secondItem="jEQ-L7-Ke1" secondAttribute="centerX" id="s8i-nF-gnw"/>
-                            <constraint firstItem="evn-pF-cWk" firstAttribute="top" secondItem="Da0-fW-Hik" secondAttribute="top" constant="156" id="ziq-Ly-I1j"/>
+                            <constraint firstItem="duC-0L-Z7s" firstAttribute="centerX" secondItem="jEQ-L7-Ke1" secondAttribute="centerX" id="55m-ln-L76"/>
+                            <constraint firstItem="ekN-B7-b1O" firstAttribute="centerX" secondItem="jEQ-L7-Ke1" secondAttribute="centerX" id="7r6-93-18D"/>
+                            <constraint firstItem="evn-pF-cWk" firstAttribute="top" secondItem="Da0-fW-Hik" secondAttribute="top" constant="156" id="Fot-zJ-EVX"/>
+                            <constraint firstItem="duC-0L-Z7s" firstAttribute="top" secondItem="evn-pF-cWk" secondAttribute="bottom" constant="136" id="K8o-dy-hfo"/>
+                            <constraint firstItem="ekN-B7-b1O" firstAttribute="centerX" secondItem="jEQ-L7-Ke1" secondAttribute="centerX" id="WOi-wU-GFW"/>
+                            <constraint firstItem="evn-pF-cWk" firstAttribute="centerX" secondItem="jEQ-L7-Ke1" secondAttribute="centerX" id="cwj-HM-HZ8"/>
+                            <constraint firstItem="ekN-B7-b1O" firstAttribute="top" secondItem="duC-0L-Z7s" secondAttribute="bottom" constant="68" id="iwA-4p-W8m"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QQE-Fi-3p3"/>
@@ -126,6 +130,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ow0-pS-gte" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="mbN-Ar-WMt"/>
+                <tapGestureRecognizer id="STw-jZ-NZT">
+                    <connections>
+                        <segue destination="x5o-VK-3td" kind="show" identifier="navigate" id="fYc-Zq-5Km"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="949" y="-642"/>
         </scene>
@@ -338,16 +348,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="Nwm-Iv-ZQ6">
-                                <rect key="frame" x="78.666666666666686" y="708.66666666666663" width="236" height="20.333333333333371"/>
+                                <rect key="frame" x="21.666666666666657" y="708.66666666666663" width="350" height="20.333333333333371"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5PD-cw-fHr">
-                                        <rect key="frame" x="0.0" y="0.0" width="43" height="20.333333333333332"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5PD-cw-fHr">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="20.333333333333332"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="Mm0-fP-XSQ"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Jura-Light" family="Jura" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUm-EF-3mR">
-                                        <rect key="frame" x="193" y="0.0" width="43" height="20.333333333333332"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUm-EF-3mR">
+                                        <rect key="frame" x="250" y="0.0" width="100" height="20.333333333333332"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="GHg-V6-eh0"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Jura-Light" family="Jura" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -461,7 +477,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Waz-YT-bCS"/>
+        <segue reference="fYc-Zq-5Km"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Rectangle 4" width="72" height="69"/>

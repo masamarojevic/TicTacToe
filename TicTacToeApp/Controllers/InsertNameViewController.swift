@@ -10,7 +10,9 @@ import UIKit
 class InsertNameViewController: UIViewController {
  
     @IBOutlet weak var txtFieldInsertName: UITextField!
-    let navigateToGame1 = "Navigate"
+    let navigateToGame1 = "navigate"
+    
+    let navigateToGameIcon = "iconNavigate"
     
     
     
@@ -36,4 +38,5 @@ class InsertNameViewController: UIViewController {
         
         
     }
+   
 }

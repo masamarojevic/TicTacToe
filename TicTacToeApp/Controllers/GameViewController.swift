@@ -50,7 +50,7 @@ class GameViewController: UIViewController {
             
             game.isPlayingWithComputer = true
             
-            playerTwo = Player(name: "Computer")
+            playerTwo = Player(name: "Comp")
         }
         
        setName()
@@ -117,6 +117,7 @@ class GameViewController: UIViewController {
     
     //SETTING WHOS TURN IS IT ON SCREEN
     func setName(){
+        
         if let player1Name = playerOne?.name,
            let player2Name = playerTwo?.name{
             
@@ -136,6 +137,7 @@ class GameViewController: UIViewController {
            let playerTwoName = playerTwo?.name{
             
             player1Count.text = "\(playerOneName) score : \(game.countWinPlayer1)"
+    
             player2Count.text = "\(playerTwoName) score : \(game.countWinPlayer2)"
         }
     }
