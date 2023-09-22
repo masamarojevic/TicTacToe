@@ -22,7 +22,7 @@ class Game {
     var countWinPlayer1 = 0
     var countWinPlayer2 = 0
    
-    
+    //SWITCH PLAYERS
     func switchPlayers (){
         if currentPLayer == 1{
             currentPLayer = 2
@@ -30,13 +30,21 @@ class Game {
             currentPLayer =  1
         }
     }
+    
+    //CHECKING TAG
     //settag is taking in index which is tag and it returns- if there was a win/draw, a valid move and currentplayer
-    func setTag(atIndex: Int) -> (GameMoments,Bool,Int){
+    func setTag(atIndex index: Int) -> (GameMoments,Bool,Int){
         
         //minus one to not choose an index that has no place
-        let index = atIndex - 1
+        let index = index - 1
         
-        //cheking boundries
+        if isSpotOccupied(atIndex: index){
+            return (.continueGame, false, currentPLayer)
+        }
+        
+        
+        
+        //CHECKING BOUNDRIES
         guard index >= 0 && index < board.count && board[index] == 0 else {
             print("Invalid move at index \(index)")
             //no win, no valid move for the current player
@@ -47,17 +55,16 @@ class Game {
         board[index] = currentPLayer
        
         
-        //if there is no win, valid move by currentplayer
+        if CheckforWin(){
+            // if there is a win there was a win, valid move for the currentplayer
+            return (.win,true,currentPLayer)
+        }
+        //if there is no win OR valid move by currentplayer
         if !board.contains(0){
             return (.draw, true, currentPLayer)
         }
         
         
-        if CheckforWin(){
-            // if there is a win there was a win, valid move for the currentplayer
-            return (.win,true,currentPLayer)
-        }
-       
         //game is played
         return (.continueGame,true,currentPLayer)
     }
@@ -69,7 +76,7 @@ class Game {
     }
     
     
-    
+    //WINNING OPTIONS
     func CheckforWin() -> Bool{
         
         let winOption = [
@@ -87,11 +94,13 @@ class Game {
         })
     }
     
+    //RESET BOARD, PLAYER
     func reset(){
         board = [0,0,0,0,0,0,0,0,0]
         currentPLayer = 1
     }
     
+    //COUNTING
     func playerCount(_ player:Int){
         if player == 1 {
             countWinPlayer1 += 1
@@ -100,20 +109,38 @@ class Game {
         }
     }
     
+    //COMPUTER PLAYER
     func computerMoves() -> Int? {
         print("Determining computer's move...")
-        //enumareted say on which index the players has placed its icon, which indexes are empty. It looks at the whole board
-        // compactmap checks if there is an empty spot, takes his index if so if not it ignores is
+        //computer will need to know the avaliable moves to be able to random select a spot that is not occupied
+        let freeSpots = availableMoves()
+        
+        guard !freeSpots.isEmpty else{
+            return nil
+        }
         //randomelement randomly selects an empty spot
-        let freeMoves = board.enumerated().compactMap{$1 == 0 ? $0 : nil}
-        return freeMoves.randomElement()
+        return freeSpots.randomElement()
+       
         
     }
     
+    //CHECK FOR SPOT
     func isSpotOccupied(atIndex index: Int) -> Bool {
-        // Assuming you have a representation of your board as an array called board
-        // where empty spots are represented by 0, player 1 by 1, and player 2 by 2
+       // cheking so that the spot is not empty.this is more spesific
         return board[index] != 0
+    }
+    
+    //CHECK ALL AVAILABLE MOVES
+    func availableMoves()-> [Int]{
+        var moves: [Int] = []
+        
+        //enumareted check the whole board which spots are avaible. if there are empty spots it ads the index to the array
+        for (index,spot) in board.enumerated(){
+            if spot == 0 {
+                moves.append(index)
+            }
+        }
+        return moves
     }
         
     

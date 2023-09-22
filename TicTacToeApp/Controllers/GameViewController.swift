@@ -40,15 +40,16 @@ class GameViewController: UIViewController {
     
     var game = Game()
     
-    
-  
-    
 
     override func viewDidLoad() {
+        
         print("Current game option is: \(gameOption)")
+        
         if gameOption == .PlayerVsComputer{
             print("inside the computer mode")
+            
             game.isPlayingWithComputer = true
+            
             playerTwo = Player(name: "Computer")
         }
         
@@ -70,25 +71,7 @@ class GameViewController: UIViewController {
         symbol?.image = UIImage(systemName: playerOneOrTwo)
     }
     
-    //RESETING GAME
-    func resetGame(){
-        
-        game.reset()
-        
-        var something = 0
-        
-                for tag in 1...9 {
-                    
-                    if let symbol = view.viewWithTag(tag) as? UIImageView {
-                        //index that is diviadable with 2 will have rect 4, others will have rect 5
-                        symbol.image = UIImage(named: something % 2 == 0 ? "Rectangle 4" : "Rectangle 5")
-                        something += 1
-          }
-
-       }
-        lblWin.text = ""
-        updateScore()
-    }
+    
    
    
     @IBAction func onPress(_ sender: UITapGestureRecognizer) {
@@ -112,17 +95,38 @@ class GameViewController: UIViewController {
         print("tag nr : \(tag)")
         }
     
+    //RESETING GAME
+    func resetGame(){
+        
+        game.reset()
+        
+        var something = 0
+        
+                for tag in 1...9 {
+                    
+                    if let symbol = view.viewWithTag(tag) as? UIImageView {
+                        //index that is diviadable with 2 will have rect 4, others will have rect 5
+                        symbol.image = UIImage(named: something % 2 == 0 ? "Rectangle 4" : "Rectangle 5")
+                        something += 1
+          }
+
+       }
+        lblWin.text = ""
+        updateScore()
+    }
+    
     //SETTING WHOS TURN IS IT ON SCREEN
     func setName(){
         if let player1Name = playerOne?.name,
            let player2Name = playerTwo?.name{
-            if game.currentPLayer == 1 {
-                lblPlayersTurn.text = "\(player1Name) 's turn"
-            }else {
-                lblPlayersTurn.text = "\(player2Name) 's turn"
-            }
             
-        } else{print("error")}
+            if game.currentPLayer == 1 {
+                
+                lblPlayersTurn.text = "\(player1Name) 's turn"
+            }
+            else {lblPlayersTurn.text = "\(player2Name) 's turn"}
+            
+         } else{print("error")}
         
     }
     
@@ -138,30 +142,23 @@ class GameViewController: UIViewController {
     
     //COMPUTER MOVE
     func computerMove(){
-        print("starting a move")
-        var move:Int? = nil
-        var attempts = 0
-        while move == nil && attempts < 10{
-            if let suggestedMove = game.computerMoves(),
-                      !game.isSpotOccupied(atIndex: suggestedMove) {
-                       move = suggestedMove
-                   }
-                   attempts += 1
-        }
-        guard let validMove = move else{
-            print("comp cant move")
-            return
-        }
-        //if computers moves set a symbol
-//        if let move = game.computerMoves(){
-//            print("computer move:\(move)")
-            setSymbol(tagNr: validMove, currentPlayer: game.currentPLayer)
-            
-        //check if his move is a win ,draw ,continue , valid move and his turn
-            let(gameMoment,_,_) = game.setTag(atIndex: validMove)
         
-            print("game moment after the move",gameMoment)
-            GameMoments(gameMoment, forPlayer: game.currentPLayer)
+        print("starting a move")
+        //get the array of empty spots 
+        let avaibleMoves = game.availableMoves()
+        
+        if let suggestedMove = avaibleMoves.randomElement(){
+            // plus one because out tag starts from 1, but our index from 0
+            let (gameMoment, validMove, _) = game.setTag(atIndex: suggestedMove + 1)
+            
+            if validMove{
+                setSymbol(tagNr: suggestedMove + 1, currentPlayer: game.currentPLayer)
+                //what is the status of the game after our placment
+                GameMoments(gameMoment, forPlayer: game.currentPLayer)
+                return
+            }
+         }
+        
         }
     
     
@@ -176,8 +173,6 @@ class GameViewController: UIViewController {
             let winningPlayer = (currentPlayer == 1) ? playerOne : playerTwo
             
             //set the winner name on screen
-            //let winningPlayer: Player? shortage for  if currentPlayer == 1 {
-            //                nameWinner = player1?.name
             if let winnerName = winningPlayer?.name {
                 lblWin.text = "\(winnerName) wins"
             }
@@ -209,7 +204,7 @@ class GameViewController: UIViewController {
             
             // if we are playing with computer and its computers turn then let him take some time for making move and make him to do a move
             if game.isPlayingWithComputer && game.currentPLayer == game.playerTwo{
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) { self.computerMove()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) { self.computerMove()
                   
                   }
             }
