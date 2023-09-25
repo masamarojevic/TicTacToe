@@ -29,7 +29,7 @@ class InsertNameViewController: UIViewController {
         if segue.identifier == navigateToGame1{
             
             let destinationVC = segue.destination as! GameViewController
-            destinationVC.gameOption = .PlayerVsComputer
+            destinationVC.game.gameOption = .PlayerVsComputer
             if let txtName1 = txtFieldInsertName.text{
                 print("setting name for player one : \(txtName1)")
                 destinationVC.playerOne = Player(name: txtName1)

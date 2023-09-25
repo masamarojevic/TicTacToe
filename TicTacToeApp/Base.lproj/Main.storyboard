@@ -21,11 +21,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="Vector" translatesAutoresizingMaskIntoConstraints="NO" id="oAe-xQ-Q9c">
-                                <rect key="frame" x="144" y="185" width="104" height="105"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Vector" translatesAutoresizingMaskIntoConstraints="NO" id="oAe-xQ-Q9c">
+                                <rect key="frame" x="144.66666666666666" y="291" width="104" height="105"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="gbc-cu-lBG">
-                                <rect key="frame" x="71" y="380" width="250" height="165.33333333333337"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="gbc-cu-lBG">
+                                <rect key="frame" x="71.666666666666686" y="462.99999999999994" width="250" height="165.33333333333331"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhm-pX-e46">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="42.666666666666664"/>
@@ -43,7 +43,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8S-dk-Zq5">
-                                        <rect key="frame" x="0.0" y="122.66666666666676" width="250" height="42.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="122.66666666666664" width="250" height="42.666666666666671"/>
                                         <color key="tintColor" red="0.78823530669999997" green="0.86666667460000002" blue="0.84705877299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="1 player" cornerStyle="capsule">
@@ -56,19 +56,19 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="Vector-2" translatesAutoresizingMaskIntoConstraints="NO" id="BVe-sp-990">
-                                <rect key="frame" x="161" y="133" width="71" height="77"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Vector-2" translatesAutoresizingMaskIntoConstraints="NO" id="BVe-sp-990">
+                                <rect key="frame" x="161" y="230" width="71" height="77"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="gbc-cu-lBG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Ts-si-e0g"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gbc-cu-lBG" secondAttribute="bottom" constant="119" id="GLT-31-7l9"/>
-                            <constraint firstItem="oAe-xQ-Q9c" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="124" id="N1i-OZ-5a9"/>
-                            <constraint firstItem="BVe-sp-990" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="75" id="Zo3-iB-See"/>
-                            <constraint firstItem="oAe-xQ-Q9c" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xfj-xY-vlq"/>
-                            <constraint firstItem="BVe-sp-990" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yrM-fx-4dX"/>
+                            <constraint firstItem="gbc-cu-lBG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DF3-mb-sGx"/>
+                            <constraint firstItem="gbc-cu-lBG" firstAttribute="top" secondItem="oAe-xQ-Q9c" secondAttribute="bottom" constant="67" id="asf-1U-eTG"/>
+                            <constraint firstItem="gbc-cu-lBG" firstAttribute="top" secondItem="BVe-sp-990" secondAttribute="bottom" constant="156" id="gke-7C-M1H"/>
+                            <constraint firstItem="oAe-xQ-Q9c" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jDg-1o-O1u"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gbc-cu-lBG" secondAttribute="bottom" constant="213.66999999999999" id="uxI-b1-iDm"/>
+                            <constraint firstItem="BVe-sp-990" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wdN-ZE-mdI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7XU-bC-aSf"/>
@@ -377,7 +377,7 @@
                                     <fontDescription key="titleFontDescription" name="Jura-Light" family="Jura" pointSize="18"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="I8A-5F-s8L"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="1e7-vW-Ual"/>
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRu-40-fpK">
@@ -410,7 +410,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="1ui-oi-sup"/>
                     <connections>
-                        <outlet property="btnExitGame" destination="s5u-kl-8YT" id="SpZ-fu-9Kx"/>
                         <outlet property="imgsq1" destination="uoi-ou-GBn" id="9HH-ak-x6f"/>
                         <outlet property="imgsq2" destination="03l-rF-vdU" id="sIH-QR-htu"/>
                         <outlet property="imgsq3" destination="1bp-sw-x5h" id="Tzh-xx-ps9"/>
@@ -477,7 +476,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fYc-Zq-5Km"/>
+        <segue reference="Waz-YT-bCS"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Rectangle 4" width="72" height="69"/>

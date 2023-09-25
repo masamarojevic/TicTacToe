@@ -23,13 +23,13 @@ class Write2NamesViewController: UIViewController {
     
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == navigateToGame{
-                  
-      let destinationVC = segue.destination as! GameViewController
-      if let txtName1 = txtFieldName1.text,let txtName2 = txtFieldname2.text{
-          
-          destinationVC.playerOne = Player(name: txtName1)
-          destinationVC.playerTwo = Player(name: txtName2)
+          if segue.identifier == navigateToGame{
+                    
+        let destinationVC = segue.destination as! GameViewController
+        if let txtName1 = txtFieldName1.text,let txtName2 = txtFieldname2.text{
+            
+            destinationVC.playerOne = Player(name: txtName1)
+            destinationVC.playerTwo = Player(name: txtName2)
       }
            
             

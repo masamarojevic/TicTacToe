@@ -21,6 +21,20 @@ class Game {
     
     var countWinPlayer1 = 0
     var countWinPlayer2 = 0
+    
+    enum GameMoments {
+        case win
+        case draw
+        case continueGame
+    }
+    
+    enum GameOption {
+    case PlayerVsPlayer
+    case PlayerVsComputer
+    }
+    
+    //by default we are playing player vs player
+    var gameOption: GameOption = .PlayerVsPlayer
    
     //SWITCH PLAYERS
     func switchPlayers (){
@@ -42,8 +56,7 @@ class Game {
             return (.continueGame, false, currentPLayer)
         }
         
-        
-        
+    
         //CHECKING BOUNDRIES
         guard index >= 0 && index < board.count && board[index] == 0 else {
             print("Invalid move at index \(index)")
@@ -64,16 +77,11 @@ class Game {
             return (.draw, true, currentPLayer)
         }
         
-        
         //game is played
         return (.continueGame,true,currentPLayer)
     }
     
-    enum GameMoments {
-        case win
-        case draw
-        case continueGame
-    }
+   
     
     
     //WINNING OPTIONS
@@ -109,9 +117,21 @@ class Game {
         }
     }
     
+    //CHECK ALL AVAILABLE MOVES
+    func availableMoves()-> [Int]{
+        var moves: [Int] = []
+        
+        //enumareted check the whole board which spots are avaible. if there are empty spots it ads the index to the array
+        for (index,spot) in board.enumerated(){
+            if spot == 0 {
+                moves.append(index)
+            }
+        }
+        return moves
+    }
+    
     //COMPUTER PLAYER
     func computerMoves() -> Int? {
-        print("Determining computer's move...")
         //computer will need to know the avaliable moves to be able to random select a spot that is not occupied
         let freeSpots = availableMoves()
         
@@ -130,18 +150,7 @@ class Game {
         return board[index] != 0
     }
     
-    //CHECK ALL AVAILABLE MOVES
-    func availableMoves()-> [Int]{
-        var moves: [Int] = []
-        
-        //enumareted check the whole board which spots are avaible. if there are empty spots it ads the index to the array
-        for (index,spot) in board.enumerated(){
-            if spot == 0 {
-                moves.append(index)
-            }
-        }
-        return moves
-    }
+ 
         
     
 }

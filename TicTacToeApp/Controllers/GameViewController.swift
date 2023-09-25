@@ -7,15 +7,11 @@
 
 import UIKit
 
-enum GameOption {
-case PlayerVsPlayer
-case PlayerVsComputer
-}
+
 
 class GameViewController: UIViewController {
     
-    //by default we are playing player vs player
-    var gameOption: GameOption = .PlayerVsPlayer
+   
 
 
     @IBOutlet weak var imgsq1: UIImageView!
@@ -33,19 +29,18 @@ class GameViewController: UIViewController {
     @IBOutlet weak var player1Count: UILabel!
     @IBOutlet weak var lblPlayersTurn: UILabel!
     
-    @IBOutlet weak var btnExitGame: UIButton!
+  
     
    var playerOne: Player?
    var playerTwo: Player?
     
     var game = Game()
     
-
     override func viewDidLoad() {
         
-        print("Current game option is: \(gameOption)")
+        print("Current game option is: \(game.gameOption)")
         
-        if gameOption == .PlayerVsComputer{
+        if game.gameOption == .PlayerVsComputer{
             print("inside the computer mode")
             
             game.isPlayingWithComputer = true
@@ -54,8 +49,8 @@ class GameViewController: UIViewController {
         }
         
        setName()
-     updateScore()
-        
+       
+       updateScore()
         
     }
     
@@ -80,6 +75,7 @@ class GameViewController: UIViewController {
         
         // we going to always check what is happening in the game and if there was a valid move
         let (gameMoment, validMove, currentPlayer) = game.setTag(atIndex: tag)
+        
         print("Player \(currentPlayer) set tag at index \(tag), resulting game moment: \(gameMoment)")
         
         let currentPLayer = game.currentPLayer
@@ -88,10 +84,7 @@ class GameViewController: UIViewController {
              setSymbol(tagNr: tag, currentPlayer: currentPLayer)
            }
         GameMoments(gameMoment, forPlayer: currentPlayer)
-        
-
-           
-        
+    
         print("tag nr : \(tag)")
         }
     
@@ -137,15 +130,16 @@ class GameViewController: UIViewController {
            let playerTwoName = playerTwo?.name{
             
             player1Count.text = "\(playerOneName) score : \(game.countWinPlayer1)"
+            
     
             player2Count.text = "\(playerTwoName) score : \(game.countWinPlayer2)"
+            
         }
     }
     
     //COMPUTER MOVE
     func computerMove(){
         
-        print("starting a move")
         //get the array of empty spots 
         let avaibleMoves = game.availableMoves()
         
@@ -159,9 +153,10 @@ class GameViewController: UIViewController {
                 GameMoments(gameMoment, forPlayer: game.currentPLayer)
                 return
             }
-         }
-        
+          }
         }
+    
+  
     
     
     //MAKING A SWITCH FUNC FOR BOTH GAME OPTION SO I DONT REPEAT MYSELF
@@ -214,7 +209,7 @@ class GameViewController: UIViewController {
            
         }
     }
-        
+    
 }
 
    
