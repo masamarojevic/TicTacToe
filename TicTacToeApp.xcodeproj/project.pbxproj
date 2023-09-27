@@ -111,19 +111,15 @@
 		491CC2EA2AB083C500391E0B /* TicTacToeApp */ = {
 			isa = PBXGroup;
 			children = (
+				496757F12ABC3EFB009781F5 /* Model */,
+				496757F02ABC3ECF009781F5 /* Controllers */,
 				491CC2EB2AB083C500391E0B /* AppDelegate.swift */,
 				491CC2ED2AB083C500391E0B /* SceneDelegate.swift */,
-				491CC2EF2AB083C500391E0B /* ViewController.swift */,
 				491CC2F12AB083C500391E0B /* Main.storyboard */,
 				491CC31D2AB0892C00391E0B /* Jura-Light.ttf */,
 				491CC2F42AB083C600391E0B /* Assets.xcassets */,
 				491CC2F62AB083C600391E0B /* LaunchScreen.storyboard */,
 				491CC2F92AB083C600391E0B /* Info.plist */,
-				491CC31F2AB1879400391E0B /* InsertNameViewController.swift */,
-				491CC3212AB18A5300391E0B /* GameViewController.swift */,
-				491CC3612AB1E8E600391E0B /* Write2NamesViewController.swift */,
-				491CC3DF2AB33A3D00391E0B /* Game.swift */,
-				491CC3E12AB33A5A00391E0B /* Player.swift */,
 			);
 			path = TicTacToeApp;
 			sourceTree = "<group>";
@@ -143,6 +139,26 @@
 				491CC30E2AB083C600391E0B /* TicTacToeAppUITestsLaunchTests.swift */,
 			);
 			path = TicTacToeAppUITests;
+			sourceTree = "<group>";
+		};
+		496757F02ABC3ECF009781F5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				491CC3612AB1E8E600391E0B /* Write2NamesViewController.swift */,
+				491CC3212AB18A5300391E0B /* GameViewController.swift */,
+				491CC31F2AB1879400391E0B /* InsertNameViewController.swift */,
+				491CC2EF2AB083C500391E0B /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		496757F12ABC3EFB009781F5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				491CC3E12AB33A5A00391E0B /* Player.swift */,
+				491CC3DF2AB33A3D00391E0B /* Game.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
